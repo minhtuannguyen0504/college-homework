@@ -11,11 +11,11 @@
             <!-- nội dung giỏ hàng  -->
             <div class="row mt-5 mb-5" *ngFor="let data of getCartData">
                 <div class="col-lg-2">
-                    <img src="{{data.pdImg}}">
+                    <img src="{{data.image}}">
                 </div>
                 <div class="col-lg-10">
-                    <h5>{{data.pdName}}</h5>
-                    <p class="mt-2 mb-3"><span></span>{{formatPrice(data.pdPrice)}}</p>
+                    <h5>{{data.title}}</h5>
+                    <p class="mt-2 mb-3"><span></span>{{formatPrice(data.price)}}</p>
                     <button class="btn btn-sm btn-danger" (click)="removeCart(data)"><i class="bi bi-trash"></i>
                         Xóa</button>
 
@@ -82,7 +82,7 @@
                             <input type="radio" checked> <label> Thanh toán khi giao hàng </label>
                         </div>
                         <div class="mb-3">
-                            <h5>Tổng số tiền:  {{totalAmount }}VND</h5>
+                            <h5>Tổng số tiền:  {{formatPrice(totalAmount) }}</h5>
                         </div>
                     </form>
                 </div>

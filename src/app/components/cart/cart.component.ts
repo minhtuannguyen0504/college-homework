@@ -23,12 +23,13 @@ export class CartComponent  implements OnInit {
   totalCart: number = 0;
 
   ngOnInit(): void {
+  
     this.getCartData = this.dataStorage.getCartData();
     this.totalCart =  this.getCartData ? this.getCartData.length : 0;
     if(this.getCartData)
     {
       this.getCartData.filter((ele: any) => {
-        this.totalAmount = ele.pdPrice * ele.plusMinusCounter + this.totalAmount;
+        this.totalAmount = ele.price * ele.plusMinusCounter + this.totalAmount;
       });
     }
 
@@ -41,7 +42,7 @@ export class CartComponent  implements OnInit {
     this.getCartData.filter((ele: any) => {
       if (ele.pdId != data.pdId) {
         this.storeCartArry.push(ele);
-        this.totalAmount = ele.pdPrice * ele.plusMinusCounter + this.totalAmount;
+        this.totalAmount = ele.price * ele.plusMinusCounter + this.totalAmount;
       }
     });
     this.dataStorage.storeCartData(this.storeCartArry);
@@ -64,11 +65,11 @@ export class CartComponent  implements OnInit {
       {
           let minusCount = plusMinusValue - 1;
           this.getCartData.filter((ele:any)=>{
-              if(data.pdId == ele.pdId)
+              if(data.id == ele.id)
               {
                 ele['plusMinusCounter'] = minusCount;
               }
-              this.totalAmount = ele.pdPrice * ele.plusMinusCounter + this.totalAmount;
+              this.totalAmount = ele.price * ele.plusMinusCounter + this.totalAmount;
           });
 
           this.storeCartArry = this.getCartData;
@@ -80,11 +81,11 @@ export class CartComponent  implements OnInit {
       {
           let minusCount = plusMinusValue + 1;
           this.getCartData.filter((ele:any)=>{
-              if(data.pdId == ele.pdId)
+              if(data.id == ele.id)
               {
                 ele['plusMinusCounter'] = minusCount;
               }
-              this.totalAmount = ele.pdPrice * ele.plusMinusCounter + this.totalAmount;
+              this.totalAmount = ele.price * ele.plusMinusCounter + this.totalAmount;
           });
 
           this.storeCartArry = this.getCartData;
