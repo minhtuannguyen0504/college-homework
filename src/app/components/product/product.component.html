@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<main class="container-fluid mt-5 mb-5">
+
+    <div class="row pageBox">
+
+     
+
+        <div class="col-lg-8 col-12">
+            <!-- product content  -->
+
+            <div class="row pageContent mt-5" *ngFor="let data of products">
+                <div class="col-lg-4 col-12 mt-3">
+                    <img src="{{data.image}}">
+                </div>
+                <div class="col-lg-8 col-12 mt-5">
+                    <h4>{{data.title}}</h4>
+                    <p>{{data.description}}</p>
+                    <p><span class="fw-medium"></span> {{formatPrice(data.price)}}</p>
+                    <a class="btn btn-sm btn-dark" [routerLink]="['/product-detail',data.id]">Chi tiết
+                         <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</main>
