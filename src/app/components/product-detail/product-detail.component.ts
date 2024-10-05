@@ -90,9 +90,10 @@ export class ProductDetailComponent implements OnInit {
 
 
   formatPrice(price: number): string {
-    return price.toLocaleString('vi-VN', {
+    return price.toLocaleString('en-US', {
       style: 'currency',
-      currency: 'VND',
+      currency: 'USD',
     });
   }
+  
 }
