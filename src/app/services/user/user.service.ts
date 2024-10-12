@@ -1,13 +1,13 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
 
-  private apiUrl = 'https://fakestoreapi.com/products';
+export class UserService {
+  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
   constructor(private http: HttpClient) {}
 
@@ -22,18 +22,37 @@ export class ProductService {
     }
   }
 
-  getProducts(): Observable<any> {
+  getUsers(): Observable<any> {
     const headers = new HttpHeaders({ 'Content-type': 'application/json' });
     const response = this.http.get<any>(this.apiUrl, { headers }).pipe(catchError(this.handleError));   
     return response;
   }
 
-  getProduct(id: number): Observable<any> {
+  getUser(id: number): Observable<any> {
     const headers = new HttpHeaders({ 'Content-type': 'application/json' });
     const url = `${this.apiUrl}/${Number(id)}`;
     const response = this.http.get<any>(url, { headers }).pipe(catchError(this.handleError)); 
     return response;
   }
+
+  updateUser(id: number, payload: any): any  {
+    const headers = new HttpHeaders({ 'Content-type': 'application/json' });
+    const url = `${this.apiUrl}/${Number(id)}`
+    const response = this.http.put(url, payload, { headers }).toPromise();
+    return response;
+    
+  }
+
+  deleteUser(id: number): void {
+    const url = `${this.apiUrl}/${Number(id)}`;
+    try {
+      this.http.delete(url).toPromise();
+    } catch (error) {
+      catchError(this.handleError);
+      console.log(error);
+    } 
+  }
+
   private handleError(error: HttpErrorResponse)  {
     let message = '';
 

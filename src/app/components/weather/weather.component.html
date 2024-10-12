@@ -1,0 +1,68 @@
+<div class="container py-5">
+    <h2 class="text-center">Danh Sách Các Tỉnh Thành Việt Nam </h2>
+    <div class="col-md-7 mx-auto mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Tên tỉnh</th>
+                    <th scope="col">Mã vùng</th>
+                    <th scope="col">Kinh độ</th>
+                    <th scope="col">Vĩ độ</th>
+                    <th scope="col">Thời tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let city of cities">
+                    <th>{{city.id}}</th>
+                    <td>{{city.name}}</td>
+                    <td>{{city.country}}</td>
+                    <td>{{city.coord['lon']}}</td>
+                    <td>{{city.coord['lat']}}</td>
+                    <td>
+                        <button 
+                            class="btn btn-warning fw-semibold text-danger" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#weatherDataModal" 
+                            (click)="getWeatherOfCity(city.id)"
+                        >
+                            Xem
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="weatherDataModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{city[0]?.name}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                @if (city) {
+                    <ul *ngIf="city && city.length > 0">
+                        <li>Điều kiện thời tiết: {{city[0].weather[0].description}}</li>
+                        <li>Nhiệt độ hiện tại: {{city[0].main.temp}}°C</li>
+                        <li>Nhiệt độ cảm nhận, phụ thuộc vào độ ẩm và gió: {{city[0].main.feels_like}}°C</li>
+                        <li>Nhiệt độ thấp nhất: {{city[0].main.temp_min}}°C</li>
+                        <li>Nhiệt độ cao nhất: {{city[0].main.temp_max}}°C</li>
+                        <li>Áp suất khí quyển tại mặt đất: {{city[0].main.grnd_level}}hPa</li>
+                        <li>Độ ẩm không khí: {{city[0].main.humidity}}%</li>
+                        <li>Tốc độ gió, tính bằng mét/giây: {{city[0].wind.speed}}m/s</li>
+                        <li>Hướng gió, tính bằng độ (độ 39, tức gió thổi từ hướng Đông Bắc): {{city[0].wind.deg}}m/s</li>
+                        <li>Độ che phủ của mây: {{city[0].clouds.all}}</li>
+                        <li>Tốc độ gió, tính bằng mét/giây: {{city[0].wind.speed}}m/s</li>
+                        <li>Dữ liệu này được lấy: {{ convertTimestamp(city[0].dt) }}</li>
+                    </ul>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
