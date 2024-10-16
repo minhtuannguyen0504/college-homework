@@ -4,6 +4,6 @@ import { UserComponent } from './components/user/user.component';
 
 export const routes: Routes = [
     { path: 'weather', component: WeatherComponent },
-    {path: "users", component: UserComponent}, 
-    {path: "", redirectTo: "/users", pathMatch: "full"}
+    { path: "users", component: UserComponent }, 
+    { path: "", redirectTo: "/users", pathMatch: "full" }
 ];
