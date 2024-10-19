@@ -6,11 +6,13 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { CartComponent } from './components/cart/cart.component';
 import { RegisterComponent } from './components/register-form/register.component';
 import { PipeComponent } from './components/pipe/pipe.component';
+import { NewproductComponent } from './NgRxBT/newproduct/newproduct.component';
 
 export const routes: Routes = [
     { path: 'weather', component: WeatherComponent },
     { path: "users", component: UserComponent }, 
     { path: "products", component: ProductComponent }, 
+    { path: "productsngrx", component: NewproductComponent }, 
     { path:'product-detail/:id',component:ProductDetailComponent },
     { path: "cart", component: CartComponent }, 
     { path: "register", component: RegisterComponent }, 
