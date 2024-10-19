@@ -1,0 +1,70 @@
+<main
+  class="d-flex align-items-center justify-content-center"
+  style="background-color: #004165; height: 100vh"
+>
+  <div
+    class="bg-white d-flex align-items-center justify-content-center rounded-3 position-relative gap-5 row"
+    style="width: 420px; height: 150px"
+  >
+    <!-- McDonalds logo -->
+    <div
+      class="d-flex align-items-center justify-content-center col-6"
+      style="width: 80px; height: 80px"
+    >
+      <img
+        src="https://ipleader.vn/wp-content/uploads/2019/02/Screen-Shot-2019-02-26-at-10.00.32-1024x1024.png"
+        alt=""
+        style="
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        "
+      />
+    </div>
+
+    <!-- Discount information -->
+    <div class="d-flex flex-column gap-2 position-relative col-6">
+      <div class="">
+        <p class="fw-semibold fs-2 m-0">$ 10</p>
+        <p class="fs-5 m-0">McDonalds</p>
+      </div>
+      <small class="text-black-50">{{ timeLeft }}</small>
+      <div
+        class="position-absolute"
+        style="
+          top: 0;
+          right: calc(100% + 24px);
+          bottom: 0;
+          border-left: 2px dashed #ccc;
+        "
+      ></div>
+    </div>
+
+    <!-- Circle -->
+    <div
+      style="
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(-50%, -50%);
+        background-color: #004165;
+        width: 50px;
+        height: 50px;
+      "
+      class="rounded-circle"
+    ></div>
+    <div
+      style="
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+        background-color: #004165;
+        width: 50px;
+        height: 50px;
+      "
+      class="rounded-circle"
+    ></div>
+  </div>
+</main>
