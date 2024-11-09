@@ -1,0 +1,28 @@
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="w-50 mt-5 mx-auto">
+        <h3 class="text-center">Đăng nhập</h3>
+        <form method="POST" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="emailTxt" class="form-label">Email</label>
+                <input type="email" class="form-control " id="emailTxt" formControlName="email">
+                <div *ngIf="loginForm['controls']['email'].dirty && loginForm['controls']['email'].errors">
+                    <small class="text-danger" *ngIf="loginForm['controls']['email'].errors['required']">Email không được để trống!</small>
+                    <small class="text-danger" *ngIf="loginForm['controls']['email'].errors['email']">Email không đúng định dạng!</small>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="passwordTxt" class="form-label">Mật khẩu</label>
+                <input type="password" class="form-control " id="passwordTxt" formControlName="password">
+                <div *ngIf="loginForm['controls']['password'].dirty && loginForm['controls']['password'].errors">
+                    <small class="text-danger" *ngIf="loginForm['controls']['password'].errors['required']">Mật khẩu không được để trống!</small>
+                    <small class="text-danger" *ngIf="loginForm['controls']['password'].errors['maxlength']">Mật khẩu không được vượt quá 8 ký tự!</small>
+                </div>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="rememberPassword">
+                <label class="form-check-label" for="rememberPassword">Ghi nhớ mật khẩu</label>
+            </div>
+            <button type="submit" class="btn btn-primary" name="loginBtn">Đăng nhập</button>
+        </form>
+    </div>
+</div>
