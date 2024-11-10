@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
-import {ReactiveFormsModule, FormGroup, FormBuilder, FormsModule} from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormGroup,
+  FormBuilder,
+  FormsModule,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-user',
@@ -10,9 +15,7 @@ import {ReactiveFormsModule, FormGroup, FormBuilder, FormsModule} from '@angular
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-
-export class UserComponent implements OnInit{
-
+export class UserComponent implements OnInit {
   users: any = [];
   user: any = {};
   error: string = '';
@@ -21,7 +24,6 @@ export class UserComponent implements OnInit{
   isEdit: boolean = false;
   isSee: boolean = false;
   userForm: FormGroup;
-  
 
   constructor(private userService: UserService, private fb: FormBuilder) {
     this.userForm = this.fb.group({
@@ -29,7 +31,7 @@ export class UserComponent implements OnInit{
       username: [''],
       email: [''],
       phone: [''],
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -38,15 +40,15 @@ export class UserComponent implements OnInit{
 
   getUsers(): void {
     this.loading = true;
-    console.log("Calling API...");
+    console.log('Calling API...');
     this.userService.getUsers().subscribe(
-      response => {
-      console.log('API response: ', response);
-      this.users = response;
-      this.loading = false;
-      console.log('Users: ', this.users);
-      }, 
-      error => {
+      (response) => {
+        console.log('API response: ', response);
+        this.users = response;
+        this.loading = false;
+        console.log('Users: ', this.users);
+      },
+      (error) => {
         this.error = error;
         this.loading = false;
         console.error('API Error:', error);
@@ -56,15 +58,15 @@ export class UserComponent implements OnInit{
 
   getUser(id: number): void {
     this.loading = true;
-    console.log("Calling API...");
+    console.log('Calling API...');
     this.userService.getUser(id).subscribe(
-      response => {
-      console.log('API response: ', response);
-      this.user = response;
-      this.loading = false;
-      console.log('User: ', this.user);
-      }, 
-      error => {
+      (response) => {
+        console.log('API response: ', response);
+        this.user = response;
+        this.loading = false;
+        console.log('User: ', this.user);
+      },
+      (error) => {
         this.error = error;
         this.loading = false;
         console.error('API Error:', error);
@@ -105,7 +107,7 @@ export class UserComponent implements OnInit{
     } else if (this.isEdit) {
       const response = await this.userService.updateUser(this.user.id, payload);
       this.users = this.users.map((user: any) => {
-        return user.id === response.id ? {...response} : user;
+        return user.id === response.id ? { ...response } : user;
       });
     }
     this.reset();
