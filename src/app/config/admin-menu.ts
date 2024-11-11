@@ -71,22 +71,9 @@ export const AdminMenu = [
         ]
     },
     {
-        path:'',
+        path:'todo',
         text:'BT Phần Services & Dependency-Injection Tuần 3',
-        children:[
-            {
-                path:'todo',
-                text:'Danh sách việc ',
-                children:[]
-            },
-            {
-                path:'todo-input',
-                text:'Nhập việc làm',
-                children:[]
-            },
-           
-   
-        ]
+        children:[]
     },
     {
         path: 'register',
