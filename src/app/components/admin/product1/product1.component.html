@@ -1,22 +1,24 @@
 <div class="product">
     <h1>Danh Sách Sản Phẩm</h1>
     <h2>Macbook</h2>
-    <div class="product__list">
+    <div class="row mt-3">
         @for (product of products; track product.id) {
-            <div class="product__list__item">
-                <div class="product__list__item__image">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-img-top p-3">
                     <a [routerLink]="['/admin/product1/detail', product.id]">
-                        <img src="{{ product.img }}" alt="img-product">
+                        <img class="w-100 h-100" src="{{ product.img }}" alt="img-product">
                     </a>
                 </div>
-                <div class="product__list__item__body">
-                    <h3>
-                        <a [routerLink]="['/admin/product1/detail', product.id]">
+                <div class="card-body pt-0">
+                    <h5 class="card-title text-center">
+                        <a [routerLink]="['/admin/product1/detail', product.id]" class="text-decoration-none text-black">
                             {{ product.name }}
                         </a>
-                    </h3>
+                    </h5>
                 </div>
             </div>
+        </div>
         }
     </div>
 </div>
