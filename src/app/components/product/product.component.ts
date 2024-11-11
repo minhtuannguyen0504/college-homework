@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { ProductService } from '../../services/product.service';
+import { ProductDetail1Component } from '../admin/product1/product-detail1/product-detail1.component';
 
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [RouterLink, NavbarComponent,CommonModule, ],
+  imports: [RouterLink, NavbarComponent,CommonModule,ProductDetail1Component],
   templateUrl: './product.component.html',
   styleUrl: './product.component.scss'
 })

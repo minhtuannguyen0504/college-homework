@@ -1,0 +1,22 @@
+<div class="product">
+    <h1>Danh Sách Sản Phẩm</h1>
+    <h2>Macbook</h2>
+    <div class="product__list">
+        @for (product of products; track product.id) {
+            <div class="product__list__item">
+                <div class="product__list__item__image">
+                    <a [routerLink]="['/admin/product1/detail', product.id]">
+                        <img src="{{ product.img }}" alt="img-product">
+                    </a>
+                </div>
+                <div class="product__list__item__body">
+                    <h3>
+                        <a [routerLink]="['/admin/product1/detail', product.id]">
+                            {{ product.name }}
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        }
+    </div>
+</div>

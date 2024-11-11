@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of, throwError } from 'rxjs';
+import { IProduct } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -67,6 +68,36 @@ export class ProductService {
     const url = `${this.apiUrl}/${productId}`;
     return this.http.delete<void>(url);
   }
+  products:IProduct[] = [
+    {
+      id: 1,
+      name: 'MacBook Air 13 inch M1',
+      img: 'https://cdn.tgdd.vn/Products/Images/44/231244/macbook-air-m1-2020-gray-600x600.jpg',
+    },
+    {
+      id: 2,
+      name: 'MacBook Air 13 inch M2',
+      img: 'https://cdn.tgdd.vn/Products/Images/44/282827/apple-macbook-air-m2-2022-xanh-600x600.jpg',
+    },
+    {
+      id: 3,
+      name: 'MacBook Air 13 inch M3',
+      img: 'https://cdn.tgdd.vn/Products/Images/44/322612/macbook-air-13-inch-m3-2024-050324-020626-600x600.jpg',
+    },
+    {
+      id: 4,
+      name: 'MacBook Air 15 inch M2',
+      img: 'https://cdn.tgdd.vn/Products/Images/44/309016/apple-macbook-air-15-inch-m2-2023-gray-thumb-600x600.jpg',
+    },
+];
+
+getList() {
+    return this.products;
+}
+
+getItemById(id: number) {
+    return this.products.find(product => product.id === id);
+}
 }
 
 export interface Product {

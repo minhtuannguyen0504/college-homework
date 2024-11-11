@@ -1,0 +1,106 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 0 1rem;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calculator {
+    width: 410px;
+    height: auto;
+    background: black;
+    padding: 1.4rem 2rem;
+    box-shadow: 0 0.2rem 1.6rem rgba(0, 0, 0, 0.4);
+    border-radius: 1.4rem;
+
+    .output,
+    .previous-output {
+          width: 100%;
+          height: 60px;
+          font-size: 4rem;
+          text-align: right;
+          padding: 2rem;
+          background-color: transparent;
+          color: #fff;
+    }
+
+    .output {
+          height: 80px;
+    }
+
+    .previous-output {
+          font-size: 2rem;
+          color: gray;
+    }
+
+    .buttons {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-auto-flow: row;
+          gap: .4rem;
+
+          button {
+                --size: 5rem;
+                width: var(--size);
+                height: var(--size);
+                font-size: calc(var(--size) - 3.6rem);
+                border-radius: 10rem;
+                margin: auto;
+                transition: all 0.2s ease-in-out;
+                background: rgb(39, 39, 39);
+                color: #fff;
+                
+                &:active {
+                      background-color: #fff !important;
+                }
+
+                &:last-child {
+                      grid-column: span 2;
+                      width: 100%;
+                }
+
+                &:nth-child(1),
+                &:nth-child(2),
+                &:nth-child(3) {
+                      background-color: #757575;
+                }
+
+                &:nth-child(4),
+                &:nth-child(8),
+                &:nth-child(12),
+                &:nth-child(16),
+                &:last-child {
+                      background-color: rgb(255, 173, 20);
+                      color: #fff;
+                }
+          }
+    }
+}

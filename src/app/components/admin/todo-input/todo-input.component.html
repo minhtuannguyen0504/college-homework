@@ -1,0 +1,8 @@
+<div class="form-group">
+    <input [formControl]="todoTitleControl" placeholder="Nhập công việc mới..">
+    @if(isSelected) {
+        <button (click)="updateTodo()">Cập nhập</button>
+    } @else {
+        <button (click)="addTodo()">Thêm</button>
+    }
+</div>

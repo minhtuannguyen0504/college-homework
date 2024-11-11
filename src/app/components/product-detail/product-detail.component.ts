@@ -71,6 +71,9 @@ export class ProductDetailComponent implements OnInit {
       response => {
       console.log('API response: ', response);
       this.products = response;
+      if (!this.getProductDetails.price) {
+        this.getProductDetails.price = 0; // Gán giá trị mặc định nếu cần
+      }
       this.loading = false;
       console.log('Users: ', this.products);
       }, 
@@ -85,15 +88,19 @@ export class ProductDetailComponent implements OnInit {
     data['plusMinusCounter'] = 1;
     this.storeCartData.push(data);
     this.dataStorage.storeCartData(this.storeCartData);
-    this.router.navigate(['/cart']);
+    this.router.navigate(['/admin/cart']);
   }
 
 
-  formatPrice(price: number): string {
+  formatPrice(price: number | undefined): string {
+    if (price === undefined || price === null) {
+      return ''; 
+    }
     return price.toLocaleString('en-US', {
       style: 'currency',
       currency: 'USD',
     });
   }
+  
   
 }

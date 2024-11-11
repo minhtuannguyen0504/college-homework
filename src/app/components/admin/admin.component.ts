@@ -14,8 +14,17 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class AdminComponent implements OnInit {
 
   menuItems = AdminMenu;
+  isExpanded: boolean[] = [];
+
   ngOnInit(): void {
       console.log(this.menuItems);
       
   }
+
+
+toggleCollapse(index: number) {
+    this.isExpanded[index] = !this.isExpanded[index];
+}
+
+
 }

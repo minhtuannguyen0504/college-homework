@@ -1,0 +1,19 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+  
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" />
+  
+    <label for="age">Age:</label>
+    <input id="age" formControlName="age" type="number" />
+  
+    <button type="button" (click)="updateInfo()">Update Info</button>
+  </form>
+  
+  <div *ngIf="displayInfo">
+    <h3>User Info:</h3>
+    <p>Name: {{ displayInfo.name }}</p>
+    <p>Email: {{ displayInfo.email }}</p>
+    <p>Age: {{ displayInfo.age }}</p>
+  </div>
