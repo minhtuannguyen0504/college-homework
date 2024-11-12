@@ -1,0 +1,15 @@
+<div class="app">
+    <div class="calculator mt-4">
+      <div>
+        <input type="text" class="output" [(ngModel)]="expression" disabled />
+      </div>
+      <div class="buttons">
+        <button
+          *ngFor="let button of buttons"
+          (click)="handleAction(button)"
+        >
+          {{ button.label }}
+        </button>
+      </div>
+    </div>
+  </div>
