@@ -12,7 +12,7 @@ import { ProductReducer } from './_store/Product.Reducer';
 import { ProductEffect } from './_store/Product.Effects';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideExperimentalZonelessChangeDetection(), provideRouter(routes),
+  providers: [provideRouter(routes),
     provideAnimationsAsync(), provideHttpClient(), provideToastr({ closeButton: true, preventDuplicates: true }),
      provideStore({product:ProductReducer}), provideEffects([ProductEffect]), provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() })
      ]
