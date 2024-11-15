@@ -1,0 +1,29 @@
+.form-group {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+
+    input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        background-color: #ccc;
+        padding: 8px 12px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.35s;
+
+        &:hover {
+            background-color: #e3e3e3;
+        }
+    }
+}

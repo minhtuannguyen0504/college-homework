@@ -1,11 +1,12 @@
-<h1>Các công việc cần phải làm</h1>
-<table>
+<h1 class="mb-4 text-center">Các công việc cần phải làm</h1>
+<app-todo-input></app-todo-input>
+<table class="table table-hover mt-2">
     <thead>
         <tr>
-            <th>STT</th>
-            <th>Tên công việc</th>
-            <th>Hoàn thành?</th>
-            <th>Hành động</th>
+            <th scope="col">ID</th>
+            <th scope="col">Tên công việc</th>
+            <th scope="col">Hoàn thành?</th>
+            <th scope="col">Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -17,12 +18,12 @@
                     <input type="checkbox" [checked]="todo.completed" (change)="toggleCompleted(todo.id)" />
                 </td>
                 <td>
-                    <div>
-                        <button (click)="getTodo(todo.id)">Sửa</button>
-                        <button (click)="deleteTodo(todo.id)">Xóa</button>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary" (click)="getTodo(todo.id)">Sửa</button>
+                        <button class="btn btn-danger" (click)="deleteTodo(todo.id)">Xóa</button>
                     </div>
                 </td>
             </tr>
-        }
+            }
     </tbody>
 </table>
