@@ -1,10 +1,9 @@
-/* styles.css hoặc styles.scss */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 form {
@@ -35,19 +34,18 @@ input[type="password"] {
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Đảm bảo padding không làm rộng input */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff; /* Màu viền khi focus */
-    outline: none; /* Ẩn outline mặc định */
+    border-color: #007bff;
+    outline: none;
 }
 
 small {
     color: red;
-    font-size: 0.875em; /* Kích thước chữ nhỏ hơn */
+    font-size: 0.875em;
 }
 
 button {
@@ -62,10 +60,10 @@ button {
 }
 
 button:disabled {
-    background-color: #cccccc; /* Màu cho nút disabled */
+    background-color: #cccccc;
     cursor: not-allowed;
 }
 
 button:hover {
-    background-color: #0056b3; /* Màu nút khi hover */
+    background-color: #0056b3;
 }

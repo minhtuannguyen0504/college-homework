@@ -19,8 +19,8 @@ export class WeatherComponent {
     this.cities = this.weatherService.getCountries();
   }
 
-  getWeatherOfCity(cityId: number): any {
-    this.weatherService.callApi(cityId).subscribe(
+  async getWeatherOfCity(cityId: number): Promise<any> {
+    await this.weatherService.callApi(cityId).subscribe(
       (data: any) => {
         this.city = data.list;
       },

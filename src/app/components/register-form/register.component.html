@@ -1,7 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="username">Username:</label>
-    <input id="username" formControlName="username">
+    <input type="text" id="username" formControlName="username">
     <div *ngIf="f['username'].invalid && (f['username'].touched || submitted)">
       <small *ngIf="f['username'].errors?.['required']">Username is required.</small>
       <small *ngIf="f['username'].errors?.['minlength']">Username must be at least 3 characters long.</small>
@@ -10,7 +10,7 @@
 
   <div>
     <label for="email">Email:</label>
-    <input id="email" formControlName="email">
+    <input type="text" id="email" formControlName="email">
     <div *ngIf="f['email'].invalid && (f['email'].touched || submitted)">
       <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
       <small *ngIf="f['email'].errors?.['email']">Invalid email format.</small>
